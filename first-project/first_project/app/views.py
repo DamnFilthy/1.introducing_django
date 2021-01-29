@@ -11,7 +11,8 @@ def home_view(request):
     pages = {
         'Главная страница': reverse('home'),
         'Показать текущее время': reverse('time'),
-        'Показать содержимое рабочей директории': reverse('workdir')
+        'Показать содержимое рабочей директории': reverse('workdir'),
+        'Тестовая страница': reverse('test')
     }
 
     # context и параметры render менять не нужно
@@ -40,3 +41,7 @@ def workdir_view(request):
     for folder in folders:
         result.append('-' + folder + ' ')
     return HttpResponse(result)
+
+
+def test(request):
+    return HttpResponse('Это тестовая страница')
